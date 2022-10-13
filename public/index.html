@@ -26,6 +26,24 @@
         alert(b)
     }
 
+    /*
+    $(function() {
+        $("#trick").on({
+            mouseover: function() {
+            $(this).css({
+                left: (Math.random() * 200) + "px",
+                top: (Math.random() * 200) + "px",
+            });
+            }
+        });
+    }); */
+
+    
+    let position = 0;
+    function trick () {
+        position = position === 0 ? 150 : 0; 
+        document.getElementById('bruh').style.transform = `translate(${position}px)`
+    }
 
     $(function() {
         $('#change').click(function () {
@@ -37,7 +55,7 @@
 
 </head>
 <body>
-    
+    <button id="bruh" class="btn btn-danger" onmouseover="trick()">Bruh</button>
     <div class="container-fluid bg-primary text-white text-center">
         <h1></h1>
         <span>Welcome to Blue Tomatoes!</span>
