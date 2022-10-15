@@ -2,9 +2,14 @@ body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-size: 300px 100px;
-  background-color: #1344e7;
+  background-color: #F5F8FA;
 }
 
 a {
   color: #00B7FF;
+}
+
+#stockImage {
+  height: 4rem;
+  width: 6rem;
 }
