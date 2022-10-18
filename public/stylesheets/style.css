@@ -9,7 +9,7 @@ a {
   color: #00B7FF;
 }
 
-#stockImage {
+.stockImage {
   height: 4rem;
   width: 6rem;
 }
