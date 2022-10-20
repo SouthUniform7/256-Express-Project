@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=s, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./stylesheets/style.css"/>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <title>Recommended Movies</title>
+
+    <script src="./JS/load_json.js"></script>
+</head>
+<body>
+
+    <input id="myInput" type="text" placeholder="bruh">
+    <br>
+
+    <button onclick="loadRandomImage()" class="btn btn-danger">Load Random Movie</button>
+
+    <div id="images">
+        <div class="col" id="col1"></div>
+        <div class="col" id="col2"></div>
+    </div>
+
+</body>
+</html>

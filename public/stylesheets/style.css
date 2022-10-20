@@ -13,3 +13,16 @@ a {
   height: 4rem;
   width: 6rem;
 }
+img {
+  width:100px;
+
+}
+
+#images {
+  display: flex;
+  flex-direction: row;
+}
+
+.col {
+  flex: 1;
+}
