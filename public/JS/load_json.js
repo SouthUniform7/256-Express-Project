@@ -5,7 +5,7 @@ let i = 0;
 function loadRandomImage(){
     $.get("db/images.json", (data) => {
         i += 1;
-        const randomIndex = Math.floor(Math.random() * 6)
+        const randomIndex = Math.floor(Math.random() * 7)
         const imageInfo = data[randomIndex]; 
         const span = $("<span>").text(imageInfo.title)
         const img = $("<img/>").attr("src", imageInfo.image);
