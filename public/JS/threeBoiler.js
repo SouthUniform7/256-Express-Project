@@ -1,8 +1,23 @@
 import * as THREE from 'https://unpkg.com/three@0.126.1/build/three.module.js';
 import { OrbitControls } from 'https://unpkg.com/three@0.126.1/examples/jsm/controls/OrbitControls.js';
+import { GLTFLoader } from "https://cdn.jsdelivr.net/npm/three@0.121.1/examples/jsm/loaders/GLTFLoader.js";
 
 const scene = new THREE.Scene();
 
+const gltfLoader = new GLTFLoader();
+
+//FIGURE OUT THE ASSET ROUTING FIRST, DON'T SERVE ASSETS IN FRONT END
+/*
+gltfLoader.load('../assets/t3-m4/scene.gltf', (gltfScene) => {
+
+    gltfScene.scene.rotation.y = Math.PI / 8;
+    gltfScene.scene.position.y = 0;
+    gltfScene.scene.scale.set(10,10,10);
+
+    scene.add(gltfScene.scene)
+
+});
+*/
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 
 const renderer = new THREE.WebGLRenderer({
