@@ -19,6 +19,7 @@ let camera;
 let renderer;
 let scene;
 let loop;
+let controls;
 
 class World {
   constructor(container) {
@@ -28,12 +29,14 @@ class World {
     loop = new Loop(camera, scene, renderer);
     container.append(renderer.domElement);
 
-    const controls = createControls(camera, renderer.domElement);
+     controls = createControls(camera, renderer.domElement);
     
     
     controls.addEventListener('change', () => {
       this.render();
       });
+
+      
 
     const cube = createCube();
 
@@ -50,7 +53,11 @@ class World {
   async init() {
     const { t3, ebon } = await loadModels();
   
+    controls.target.copy(t3.position);
+
     scene.add(t3, ebon);
+    loop.updatables.push(t3);
+    
   }
 
   render() {
