@@ -10,8 +10,8 @@ async function loadModels() {
     const loader = new GLTFLoader();
   
     const [t3Data, hawkData] = await Promise.all([
-        loader.loadAsync('/assets/t3-m4/scene.gltf'),
-        loader.loadAsync('/assets/ebon_hawk/scene.gltf'),
+        loader.loadAsync('/assets/t3-m4.glb'),
+        loader.loadAsync('/assets/ebon_hawk.glb'),
       ]);
   
     console.log('bruh!', t3Data);
