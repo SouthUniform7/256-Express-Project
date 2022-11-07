@@ -1,73 +1,57 @@
 [
+  {
+    "idx": 0,
 
-    {
+    "title": "Forest Gump",
 
-       "idx": 0,
+    "rating": "4"
+  },
 
-       "title": "Forest Gump",
+  {
+    "idx": 1,
 
-       "rating": "4"
+    "title": "Talladega Nights",
 
-     },
+    "rating": "4"
+  },
 
-     {
+  {
+    "idx": 2,
 
-       "idx": 1,
+    "title": "The Shawshank Redemption",
 
-       "title": "Talladega Nights",
+    "rating": "2"
+  },
 
-      "rating": "4"
+  {
+    "idx": 3,
 
-     },
+    "title": "The Wolf of Wall Street",
 
-     {
+    "rating": "4"
+  },
 
-       "idx": 2,
+  {
+    "idx": 4,
 
-      "title": "The Shawshank Redemption",
+    "title": "Superbad",
 
-       "rating": "2"
+    "rating": "5"
+  },
 
-     },
+  {
+    "idx": 5,
 
-     {
+    "title": "21 Jump Street",
 
-       "idx": 3,
+    "rating": "4"
+  },
 
-       "title": "The Wolf of Wall Street",
+  {
+    "idx": 6,
 
-       "rating": "4"
+    "title": "A Fistful of Dollars",
 
-     },
-
-     {
-
-      "idx": 4,
-
-      "title": "Superbad",
-
-      "rating": "5"
-
-    },
-
-    {
-
-      "idx": 5,
-
-      "title": "21 Jump Street",
-
-      "rating": "4"
-
-    },
-
-    {
-
-      "idx": 6,
-
-      "title": "A Fistful of Dollars",
-
-      "rating": "3"
-
-    }
-
-    ]
+    "rating": "3"
+  }
+]
