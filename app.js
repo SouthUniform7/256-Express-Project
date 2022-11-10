@@ -44,7 +44,6 @@ app.use(
 
 var trips = require("./public/db/movieList.json");
 
-
 app.get("/getList", function (req, res) {
   res.setHeader("Content-Type", "application/json");
 
@@ -67,12 +66,27 @@ app.post("/setRating", function (req, res) {
   res.end(JSON.stringify(trips));
 });
 
-var addresses = require("./public/db/locations.json");
+//var addresses = require("./public/db/locations.json");
+
+var MongoClient = require('mongodb').MongoClient;
+var url = "mongodb://localhost:27017/";
 
 app.get("/getAddress", function (req, res) {
   res.setHeader("Content-Type", "application/json");
 
-  res.end(JSON.stringify(addresses));
+
+  MongoClient.connect(url, function(err, db) {
+    if (err) throw err;
+    var dbo = db.db("locationsDB");
+    dbo.collection("locations").find({}).toArray(function(err, result) {
+      if (err) throw err;
+      console.log(result);
+      res.end(JSON.stringify(result));
+      db.close();
+    });
+  });
+
+  //res.end(JSON.stringify(addresses));
 });
 
 app.post("/setAddress", function (req, res) {
@@ -94,9 +108,6 @@ app.post("/setAddress", function (req, res) {
 
   res.end(JSON.stringify(addresses));
 });
-
-
-
 
 app.use("/", indexRouter);
 

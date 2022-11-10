@@ -39,6 +39,7 @@ function loadAddress(addy) {
   // var div = $('<div></div>').append(JSON.stringify(tripInfo));
 
   $("#content").empty();
+  //do an if to check value of html input with jquery, if empty run the existing code, else loop through but check for name matching
 
   for (let i = 0; i < addy.length; i++) {
     

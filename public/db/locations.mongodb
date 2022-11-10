@@ -1,0 +1,40 @@
+// MongoDB Playground
+// To disable this template go to Settings | MongoDB | Use Default Template For Playground.
+// Make sure you are connected to enable completions and to be able to run a playground.
+// Use Ctrl+Space inside a snippet or a string literal to trigger completions.
+
+// Select the database to use.
+use('locationsDB');
+
+// The drop() command destroys all data from a collection.
+// Make sure you run it against the correct database and collection.
+db.locations.find();
+
+// Insert a few documents into the sales collection.
+db.locations.insertMany([
+    {
+   "username": "pat",
+   "address": "301 S Pugh St",
+   "line2": "305",
+   "city": "State College",
+   "state": "Pennsylvania",
+   "zip": "16801"
+  },
+  {
+    "username": "pmw",
+    "address": "recogasdgjaspdgboa",
+    "line2": "asdkgjnab",
+    "city": "sdfhfdn",
+    "state": "Pennsylvania",
+    "zip": "16801"
+   },
+   {
+    "username": "carl",
+    "address": "asdgfad",
+    "line2": "sgd",
+    "city": "adfhsdfhsgn",
+    "state": "Delaware",
+    "zip": "16801"
+   }
+]);
+
