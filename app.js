@@ -42,20 +42,20 @@ app.use(
   express.static(path.join(__dirname, "node_modules/three/examples/jsm"))
 );
 
-var trips = require("./public/db/movieList.json");
+var movies = require("./public/db/movieList.json");
 
 app.get("/getList", function (req, res) {
   res.setHeader("Content-Type", "application/json");
 
-  res.end(JSON.stringify(trips));
+  res.end(JSON.stringify(movies));
 });
 
 app.post("/setRating", function (req, res) {
   //  trips[req.body.idx].rating = req.body.rating;
 
   for (let i = 0; i < trips.length; i++) {
-    if (trips[i].title === req.body.name) {
-      trips[i].rating = req.body.rating;
+    if (movies[i].title === req.body.name) {
+      movies[i].rating = req.body.rating;
 
       break;
     }
@@ -63,7 +63,7 @@ app.post("/setRating", function (req, res) {
 
   res.setHeader("Content-Type", "application/json");
 
-  res.end(JSON.stringify(trips));
+  res.end(JSON.stringify(movies));
 });
 
 //var addresses = require("./public/db/locations.json");
@@ -93,15 +93,6 @@ app.post("/setAddress", function (req, res) {
   //  trips[req.body.idx].rating = req.body.rating;
 
   res.setHeader("Content-Type", "application/json");
-
-  /*
-  req.body.username = username1;
-  req.body.address = address1; 
-  req.body.line2 = line21;
-  req.body.city = city1;
-  req.body.state = state1;
-  req.body.zip = zip1
-  */
 
   var myobj = { username: req.body.username, address: req.body.address, line2: req.body.line2, city: req.body.city, state: req.body.state, zip: req.body.zip };
 
