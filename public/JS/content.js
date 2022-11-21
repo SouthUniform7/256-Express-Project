@@ -52,6 +52,7 @@ function loadAddress(addy) {
     span.append("City: " + loc.city).append($("<br>"))
     span.append("State: " + loc.state).append($("<br>"))
     span.append("ZIP Code: " + loc.zip).append($("<br>"))
+    span.append($("<br>"))
 
     $("#content").append(span);
   }
@@ -67,8 +68,9 @@ function setAddress() {
   const line2 = $("#line2")[0].value;
   const city = $("#city")[0].value;
   const state = $("#state option:selected").text();
-  console.log(state);
   const zip = $("#zip")[0].value;
+
+  console.log('i ran')
 
   $.post("/setAddress", { username, address, line2, city, state, zip }, loadAddress);
 }

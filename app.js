@@ -92,21 +92,32 @@ app.get("/getAddress", function (req, res) {
 app.post("/setAddress", function (req, res) {
   //  trips[req.body.idx].rating = req.body.rating;
 
-  for (let i = 0; i < addresses.length; i++) {
-    if (addresses[i].username === req.body.username) {
-      addresses[i].address = req.body.address;
-      addresses[i].line2 = req.body.line2;
-      addresses[i].city = req.body.city;
-      addresses[i].state = req.body.state;
-      addresses[i].zip = req.body.zip;
-
-      break;
-    }
-  }
-
   res.setHeader("Content-Type", "application/json");
 
-  res.end(JSON.stringify(addresses));
+  /*
+  req.body.username = username1;
+  req.body.address = address1; 
+  req.body.line2 = line21;
+  req.body.city = city1;
+  req.body.state = state1;
+  req.body.zip = zip1
+  */
+
+  var myobj = { username: req.body.username, address: req.body.address, line2: req.body.line2, city: req.body.city, state: req.body.state, zip: req.body.zip };
+
+  MongoClient.connect(url, function(err, db) {
+    if (err) throw err;
+    var dbo = db.db("locationsDB");
+    
+    dbo.collection("locations").insertOne(myobj, function(err, res) {
+      if (err) throw err;
+      console.log("1 document inserted", req.body.username, ",", req.body.address);
+      db.close();
+    });
+  }); 
+
+
+  //res.end(JSON.stringify(addresses));
 });
 
 app.use("/", indexRouter);
