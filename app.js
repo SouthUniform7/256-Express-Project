@@ -71,6 +71,8 @@ app.post("/setRating", function (req, res) {
 var MongoClient = require('mongodb').MongoClient;
 var url = "mongodb://localhost:27017/";
 
+//ADDRESSES SECTION
+
 app.get("/getAddress", function (req, res) {
   res.setHeader("Content-Type", "application/json");
 
@@ -109,6 +111,76 @@ app.post("/setAddress", function (req, res) {
 
 
   //res.end(JSON.stringify(addresses));
+});
+
+
+//COLOR PICKER SECTION
+
+app.get("/getColors", function (req, res) {
+  res.setHeader("Content-Type", "application/json");
+
+
+  MongoClient.connect(url, function(err, db) {
+    if (err) throw err;
+    var dbo = db.db("locationsDB");
+    dbo.collection("colors").find({}).toArray(function(err, result) {
+      if (err) throw err;
+      console.log(result);
+      res.end(JSON.stringify(result));
+      db.close();
+    });
+  });
+
+  //res.end(JSON.stringify(addresses));
+});
+
+app.post("/setColors", function (req, res) {
+  //  trips[req.body.idx].rating = req.body.rating;
+
+  res.setHeader("Content-Type", "application/json");
+
+  var myobj = { username: req.body.username, color: req.body.color };
+
+  MongoClient.connect(url, function(err, db) {
+    if (err) throw err;
+    var dbo = db.db("locationsDB");
+    
+    dbo.collection("colors").insertOne(myobj, function(err, res) {
+      if (err) throw err;
+      console.log("1 document inserted", req.body.username, ",", req.body.color);
+      db.close();
+    });
+  }); 
+
+
+  //res.end(JSON.stringify(addresses));
+});
+
+
+//RESULTS SECTION
+
+app.get("/getResults", function (req, res) {
+  res.setHeader("Content-Type", "application/json");
+
+  MongoClient.connect(url, function(err, db) {
+    if (err) throw err;
+    var dbo = db.db("mydb");
+    dbo.collection('locations').aggregate([
+      { $lookup:
+         {
+           from: 'colors',
+           localField: 'color',
+           foreignField: 'username',
+           as: 'colorname'
+         }
+       }
+      ]).toArray(function(err, res) {
+      if (err) throw err;
+      console.log(JSON.stringify(res));
+      db.close();
+    });
+  });
+  
 });
 
 app.use("/", indexRouter);

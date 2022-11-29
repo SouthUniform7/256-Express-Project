@@ -75,3 +75,73 @@ function setAddress() {
   $.post("/setAddress", { username, address, line2, city, state, zip }, loadAddress);
 }
 
+
+//COLORS SECTION
+
+function loadColors(color_data) {
+  console.log(color_data);
+
+  // var div = $('<div></div>').append(JSON.stringify(tripInfo));
+
+  $("#content").empty();
+  //do an if to check value of html input with jquery, if empty run the existing code, else loop through but check for name matching
+
+  for (let i = 0; i < color_data.length; i++) {
+    
+    const col = color_data[i];
+
+    const span = $("<span></span>");
+    span.append("Username: " + col.username).append($("<br>"))
+    span.append("Color: " + col.color).append($("<br>"));
+    span.append($("<br>"))
+
+    $("#content").append(span);
+  }
+}
+
+function getColors() {
+  $.get("/getColors", loadColors);
+}
+
+function setColors() {
+  const username = $("#username")[0].value;
+  const color = $("#color")[0].value;
+  
+
+  console.log('i ran')
+
+  $.post("/setColors", { username, color}, loadColors);
+}
+
+//RESULTS SECTION
+
+function loadResults(results) {
+  console.log(results);
+
+  // var div = $('<div></div>').append(JSON.stringify(tripInfo));
+
+  $("#content").empty();
+  //do an if to check value of html input with jquery, if empty run the existing code, else loop through but check for name matching
+
+  for (let i = 0; i < results.length; i++) {
+    
+    const resu = results[i];
+
+    const span = $("<span></span>");
+    span.append("Username: " + resu.username).append($("<br>"))
+    span.append("Color: " + resu.color).append($("<br>"));
+    span.append("Address: " + resu.address).append($("<br>"));
+    span.append("Line 2: " + resu.line2).append($("<br>"))
+    span.append("City: " + resu.city).append($("<br>"))
+    span.append("State: " + resu.state).append($("<br>"))
+    span.append("ZIP Code: " + resu.zip).append($("<br>"))
+    span.append($("<br>"))
+    span.append($("<br>"))
+
+    $("#content").append(span);
+  }
+}
+
+function getResults() {
+  $.get("/getResults", loadResults);
+}
