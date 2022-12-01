@@ -28,11 +28,11 @@
 
     <link href=https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 
-    <title>Search</title>
+    <title>Results</title>
 
 </head>
 
-<body>
+<body onload="getAddress();getColors()">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">Navbar</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -45,7 +45,7 @@
             <a class="nav-item nav-link" href="./movieRatings.html">Movie Ratings</a>
             <a class="nav-item nav-link" href="./location.html">Location </a>
             <a class="nav-item nav-link" href="./colors.html">Colors</a>
-            <a class="nav-item nav-link active" href="./searchPage.html">Search Page <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link active" href="./searchPage.html">Results Page <span class="sr-only">(current)</span></a>
             <a class="nav-item nav-link" href="./3DGraphics.html">Three.JS Graphics Engine</a>
             <form class="form-inline">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -54,30 +54,21 @@
           </div>
         </div>
       </nav>
-    <h1>Search</h1>
+    <h1>Results</h1>
 
 
-    <div id="SearchContainer">
-
-
-      <div class="row">
-        <div class="col-sm-3">
-          <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1">Username:</span>
-            <input id="username" type="text" placeholder="Username" class="form-control" aria-label="username" aria-describedby="basic-addon1">
+    <div id="ResultsContainer">      
+        <div class="row">
+          <div class="col-sm-3">
+            <div id="content"></div>
+          </div>
+          
+          <div class="col-sm-3">
+            <div id="colors"></div>
           </div>
         </div>
-      </div>
-
+    </div>
       
-
-      <div class="row">
-        <div class="col-sm-1">
-          <button class="btn btn-success" onclick="getResults()">Submit Username</button>
-        </div>
-      </div>
-
-      <div id="content"></div>
 
 </body>
 </html>

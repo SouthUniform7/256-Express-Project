@@ -83,7 +83,7 @@ function loadColors(color_data) {
 
   // var div = $('<div></div>').append(JSON.stringify(tripInfo));
 
-  $("#content").empty();
+  $("#colors").empty();
   //do an if to check value of html input with jquery, if empty run the existing code, else loop through but check for name matching
 
   for (let i = 0; i < color_data.length; i++) {
@@ -95,7 +95,7 @@ function loadColors(color_data) {
     span.append("Color: " + col.color).append($("<br>"));
     span.append($("<br>"))
 
-    $("#content").append(span);
+    $("#colors").append(span);
   }
 }
 

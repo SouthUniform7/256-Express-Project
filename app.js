@@ -156,33 +156,6 @@ app.post("/setColors", function (req, res) {
   //res.end(JSON.stringify(addresses));
 });
 
-
-//RESULTS SECTION
-
-app.get("/getResults", function (req, res) {
-  res.setHeader("Content-Type", "application/json");
-
-  MongoClient.connect(url, function(err, db) {
-    if (err) throw err;
-    var dbo = db.db("mydb");
-    dbo.collection('locations').aggregate([
-      { $lookup:
-         {
-           from: 'colors',
-           localField: 'color',
-           foreignField: 'username',
-           as: 'colorname'
-         }
-       }
-      ]).toArray(function(err, res) {
-      if (err) throw err;
-      console.log(JSON.stringify(res));
-      db.close();
-    });
-  });
-  
-});
-
 app.use("/", indexRouter);
 
 app.use("/users", usersRouter);
