@@ -3,8 +3,8 @@ import { GLTFLoader } from "https://cdn.jsdelivr.net/npm/three@0.121.1/examples/
 
 
 import { loadModels } from './components/models/Models.js';
-import { loadt3 } from './components/models/t3.js';
-import { loadEbon } from './components/models/ebon.js';
+//import { loadt3 } from './components/models/t3.js';
+//import { loadEbon } from './components/models/ebon.js';
 import { createCamera } from './components/camera.js';
 import { createCube } from './components/cube.js';
 import { createLights } from './components/lights.js';
@@ -35,6 +35,7 @@ class World {
      controls = createControls(camera, renderer.domElement);
     
     
+
     controls.addEventListener('change', () => {
       this.render();
       });
@@ -64,16 +65,17 @@ class World {
       controls.target.copy(t3.position);
       scene.add(t3)
       loop.updatables.push(t3);
-    }
-
-    if (opt === 'ebon'){
+    } else if (opt === 'ebon'){
       scene.add(ebon)
     }
-  
-    //controls.target.copy(t3.position);
+    else if (opt === 'both'){
+        
+    controls.target.copy(t3.position);
 
-    //scene.add(t3, ebon);
-    //loop.updatables.push(t3);
+    scene.add(t3, ebon);
+    loop.updatables.push(t3);
+    }
+
     
   }
 
@@ -89,6 +91,7 @@ class World {
   stop() {
     loop.stop();
   }
+
 }
 
 export { World };

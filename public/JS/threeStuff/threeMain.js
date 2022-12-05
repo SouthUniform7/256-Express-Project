@@ -22,7 +22,7 @@ async function main() {
     // 2. Render the scene
     world.render();
   }
-
-  main().catch((err) => {
-    console.error(err);
-  });
+  
+main().catch((err) => {
+  console.error(err);
+});
