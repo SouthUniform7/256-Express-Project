@@ -3,6 +3,8 @@ import { GLTFLoader } from "https://cdn.jsdelivr.net/npm/three@0.121.1/examples/
 
 
 import { loadModels } from './components/models/Models.js';
+import { loadt3 } from './components/models/t3.js';
+import { loadEbon } from './components/models/ebon.js';
 import { createCamera } from './components/camera.js';
 import { createCube } from './components/cube.js';
 import { createLights } from './components/lights.js';
@@ -20,9 +22,10 @@ let renderer;
 let scene;
 let loop;
 let controls;
+let opt;
 
 class World {
-  constructor(container) {
+  constructor(container, choice) {
     camera = createCamera();
     scene = createScene();
     renderer = createRenderer();
@@ -40,6 +43,8 @@ class World {
 
     const cube = createCube();
 
+    opt = choice;
+
     const light = createLights();
 
     //loop.updatables.push(cube);
@@ -50,13 +55,25 @@ class World {
     const resizer = new Resizer(container, camera, renderer);
   }
 
+  
+
   async init() {
     const { t3, ebon } = await loadModels();
-  
-    controls.target.copy(t3.position);
 
-    scene.add(t3, ebon);
-    loop.updatables.push(t3);
+    if (opt === 't3'){
+      controls.target.copy(t3.position);
+      scene.add(t3)
+      loop.updatables.push(t3);
+    }
+
+    if (opt === 'ebon'){
+      scene.add(ebon)
+    }
+  
+    //controls.target.copy(t3.position);
+
+    //scene.add(t3, ebon);
+    //loop.updatables.push(t3);
     
   }
 

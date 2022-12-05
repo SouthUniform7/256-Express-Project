@@ -80,6 +80,7 @@ function setAddress() {
 
 function loadColors(color_data) {
   console.log(color_data);
+  console.log('im LoadColors!');
 
   // var div = $('<div></div>').append(JSON.stringify(tripInfo));
 

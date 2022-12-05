@@ -1,9 +1,10 @@
 @import url("https://use.typekit.net/jmk3xov.css");
 
-canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
+#threeContainer {
+  background-color: #FFF;
+  width: 200px;
+  height:200px;
+  border: 1px solid black;
 }
 
 body {

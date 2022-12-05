@@ -4,12 +4,17 @@ import { GLTFLoader } from "https://cdn.jsdelivr.net/npm/three@0.121.1/examples/
 
 import { World } from './world.js';
 
+const select = document.querySelector('#model');
+const output= select.value;
+const choice = output;
+
 async function main() {
     // Get a reference to the container element
     const container = document.querySelector('#threeContainer');
+    
   
     // 1. Create an instance of the World app
-    const world = new World(container);
+    const world = new World(container, choice);
 
     // complete async tasks
     await world.init();
